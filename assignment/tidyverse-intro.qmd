@@ -130,7 +130,7 @@ Which reservoir has the highest mean surface (\< 1 m depth) chlorophyll-a? Hint:
 
 **Question 10:**
 
-Which reservoir has the highest observed surface chlorophyll-a? (you will use a group_by and summerize)
+Which reservoir has the highest observed surface chlorophyll-a? (you will use a group_by and summerize with a different summary statistic than Question 9)
 
 **Answer 10:**
 ```{r}
@@ -177,11 +177,22 @@ Two of the reservoirs (FCR and BVR) are close to each other. We are interested i
 
 **Question 14:**
 
-Plot the difference in the annual mean chlorophyll-a between `BVR` and `FCR`. This is the trickiest of the questions because you will need to use [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data) to make a column for `BVR` and `FCR` so that you can subtract one column from the other. 
+Calculate the difference in the annual mean chlorophyll-a between `BVR` and `FCR`. This is the trickiest of the questions because you will need to use [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data) to make a column for `BVR` and `FCR` so that you can subtract one column from the other. 
 
-Hints: You will need to use `group_by`, `summarize`, [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data), and `mutate` to transform the cleaned dataset from Exercise 3 into a table that can be used to generate this plot. You should have one plot with one line and points.
+Hints: You will need to use `group_by`, `summarize`, [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data), and `mutate` to transform the cleaned dataset from Exercise 3 into a table 
+
 
 **Answer 14:**
+
+```{r}
+
+```
+
+**Question 15:**
+
+Plot the difference in the annual mean chlorophyll-a between `BVR` and `FCR` calculated in Question 14.  You should have one plot with one line and points.
+
+**Answer 15:**
 
 ```{r}
 
@@ -191,21 +202,21 @@ Hints: You will need to use `group_by`, `summarize`, [`pivot_wider`](https://r4d
 
 This exercise is focused on exporting the data and a plot.
 
-**Question 15:**
+**Question 16:**
 
-Save the plot from Question 14 to a PNG named `question-14.png` in your repo top-level directory. Hint: use [ggsave()](https://r4ds.hadley.nz/data-visualize.html#sec-ggsave)
+Save the plot from Question 15 to a PNG named `question-14.png` in your repo top-level directory. Hint: use [ggsave()](https://r4ds.hadley.nz/data-visualize.html#sec-ggsave)
 
-**Answer 15:**
+**Answer 16:**
 
 ```{r}
 
 ```
 
-**Question 16:**
+**Question 17:**
 
 Write the data frame you created for answering Question 14 (not the entire dataset) to your repo top-level directory with the filename `question-14-data.csv`. Hint use [`write_csv()`](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file)
 
-**Answer 16:**
+**Answer 17:**
 
 ```{r}
 
