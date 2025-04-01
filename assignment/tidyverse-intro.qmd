@@ -6,7 +6,7 @@ format:
     embed-resources: true
 ---
 
-This module represents the "Whole Game" for data science in R. In this module, you will be importing, tidying, transforming, visualizing, and communicating environmental data.  If you have used Tidyverse previously, then this module is a review.  If you have not used Tidyverse previously, then you will use the links to the "R for Data Science" book to learn the skills that you need to complete the module.  
+This module represents the "Whole Game" for data science in R. In this module, you will be importing, tidying, transforming, visualizing, and communicating environmental data. If you have used Tidyverse previously, then this module is a review. If you have not used Tidyverse previously, then you will use the links to the "R for Data Science" book to learn the skills that you need to complete the module.
 
 Be sure to load the following packages.
 
@@ -17,12 +17,12 @@ library(tidyverse)
 
 The `Reservoir` column shows different reservoirs in the Roanoke, VA, area where water quality variables were measured.
 
-- Description of data set: <https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=200&revision=14>
-- Data: <https://pasta.lternet.edu/package/data/eml/edi/200/14/0432a298a90b2b662f26c46071f66b8a>
+-   Description of data set: <https://portal.edirepository.org/nis/mapbrowse?scope=edi&identifier=200&revision=14>
+-   Data: <https://pasta.lternet.edu/package/data/eml/edi/200/14/0432a298a90b2b662f26c46071f66b8a>
 
 **Warming-up**
 
-Read the data file into R. This file is directly streamed into R memory from a URL rather than downloaded and saved locally.  Reading from the original sources ensures you work with the latest and unaltered version.
+Read the data file into R. This file is directly streamed into R memory from a URL rather than downloaded and saved locally. Reading from the original sources ensures you work with the latest and unaltered version.
 
 ```{r}
 file_name <- "https://pasta.lternet.edu/package/data/eml/edi/200/14/0432a298a90b2b662f26c46071f66b8a"
@@ -31,126 +31,141 @@ df <- read_csv(file_name)
 
 # Excerise 1
 
-The first exercise is focused on data visualization, so you will start with a filtered dataset named `df2`.  This subsetted dataset is for a particular location (`Site == 50`) for a particular Reservoir (`Reservoir == "FCR"`).  In this example, `df` is modified and assigned to `df2`
+The first exercise is focused on data visualization, so you will start with a filtered dataset named `df2`. This subsetted dataset is for a particular location (`Site == 50`) for a particular Reservoir (`Reservoir == "FCR"`). In this example, `df` is modified and assigned to `df2`
 
 ```{r}
 df2 <- df |> 
-  filter(Reservoir == "FCR" & Site == 50 & DateTime == as_datetime("2022-05-09 12:46:59"))
+  filter(Reservoir == "FCR" & Site == 50 & DateTime == as_datetime("2022-05-09 16:46:59"))
 ```
 
-## Question 1:
+**Question 1:**
 
-- Describe the data set imported above (`df`) to the best of your ability given the documentation provided: what are the columns and units? Where do the numbers come from? 
-- What value is used for missing values?  What is the interpretation of missing values?
+-   Describe the data set imported above (`df`) to the best of your ability given the documentation provided: what are the columns and units? Where do the numbers come from?
+-   What value is used for missing values? What is the interpretation of missing values?
+
+**Answer 1:**
 
 Add answer here
 
-## Question 2
+**Question 2:**
 
-[Plot](https://r4ds.hadley.nz/data-visualize.html#two-numerical-variables) and *describe* the relationship between temperature and depth.  What might explain the pattern? Hint: use the point geom
+[Plot](https://r4ds.hadley.nz/data-visualize.html#two-numerical-variables) and *describe* the relationship between temperature and depth.  You will use `df2` from above. What might explain the pattern? Hint: use the point geom.
+
+**Answer 2:**
 
 ```{r}
-
 ```
 
 # Exercise 2
 
-Exercise 2 is focused on cleaning up the full dataset.  Initially, you will use the full dataset (`df`), **not** `df2`. Then, you will use the `filter`, `select`, `rename`, and `mutate` functions.
+Exercise 2 is focused on cleaning up the full dataset. Initially, you will use the full dataset (`df`), **not** `df2`. Then, you will use the `filter`, `select`, `rename`, and `mutate` functions.  
 
-## Question 3
+**Question 3:**
 
-We are only interested in the `Chla_ugL` at the surface of each reservoir. [Filter](https://r4ds.hadley.nz/data-transform.html#filter) the dataset (`df`) to only include measurements less than 1 m deep and [select](https://r4ds.hadley.nz/data-transform.html#sec-select) only the reservoir, site, date, depth, chlorophyll-a, chlorophyll-a flag columns.   Remember, the filtering is done on rows, and selecting is done on columns.  Assign the new dataframe to `df3`
+We are only interested in the `Chla_ugL` at the surface of each reservoir. [Filter](https://r4ds.hadley.nz/data-transform.html#filter) the dataset (`df`) to only include measurements less than 1 m deep and [select](https://r4ds.hadley.nz/data-transform.html#sec-select) only the reservoir, site, date, depth, chlorophyll-a, chlorophyll-a flag columns. Remember, the filtering is done on rows, and selecting is done on columns. Assign the new dataframe to `df3`
 
-```{r}
-
-```
-
-## Question 4
-
-The column name `Flag_Chla_ugL` is a bit long, so [Rename](https://r4ds.hadley.nz/data-transform.html#rename) the column to `flag`.  Then `filter` the dataset to only include high-quality data (flag is 0) 
+**Answer 3:**
 
 ```{r}
 
 ```
 
+**Question 4:**
 
-## Question 5
+The column name `Flag_Chla_ugL` is a bit long, so [Rename](https://r4ds.hadley.nz/data-transform.html#rename) the column to `flag`. Then `filter` the dataset to only include high-quality data (flag is 0).  You will build on df3 by updating it with your modifications (e.g., df3 <- df3 + your calculations).
 
-In the analysis below, you will need a column that is the year of the measurement.  Apply the function [`year()`](https://r4ds.hadley.nz/datetimes.html#date-time-components) from the lubridate package to the `datetime` column. Hint: you will use the `year` function within the [`mutate` function](https://r4ds.hadley.nz/data-transform.html#sec-mutate) 
-
+**Answer 4:**
 ```{r}
 
 ```
 
-## Question 6
+**Question 5:**
 
+In the analysis below, you will need a column that is the year of the measurement. Apply the function [`year()`](https://r4ds.hadley.nz/datetimes.html#date-time-components) from the lubridate package to the `datetime` column. Hint: you will use the `year` function within the [`mutate` function](https://r4ds.hadley.nz/data-transform.html#sec-mutate). You will build on df3 by assigning your new to df3 (e.g., df3 <- df3 + your calculations). You will build on df3 by updating it with your modifications (e.g., df3 <- df3 + your calculations).
 
-In the analysis below, you will need a column that is the month of the measurement.  Apply the function [`month()`](https://r4ds.hadley.nz/datetimes.html#date-time-components) from the lubridate package to the `datetime` column and save the updated data frame. Hint: you will use the [`mutate` function](https://r4ds.hadley.nz/data-transform.html#sec-mutate) 
-
+**Answer 5:**
 ```{r}
 
 ```
 
-## Question 7
+**Question 6:**
 
-To finish up your cleaned dataset, please order the values in the columns by Reservoir (A-Z).  Hint:  use [`arrange`](https://r4ds.hadley.nz/data-transform.html#arrange)
+In the analysis below, you will need a column that is the month of the measurement. Apply the function [`month()`](https://r4ds.hadley.nz/datetimes.html#date-time-components) from the lubridate package to the `datetime` column and save the updated data frame. Hint: you will use the [`mutate` function](https://r4ds.hadley.nz/data-transform.html#sec-mutate). You will build on df3 by updating it with your modifications (e.g., df3 <- df3 + your calculations).
 
+**Answer 6:**
 ```{r}
 
 ```
 
+**Question 7:**
+
+To finish up your cleaned dataset, please order the values in the columns by Reservoir (A-Z). Hint: use [`arrange`](https://r4ds.hadley.nz/data-transform.html#arrange). You will build on df3 by updating it with your modifications (e.g., df3 <- df3 + your calculations).
+
+**Answer 7:**
+```{r}
+
+```
 
 # Exercise 3
 
-Exercise 3 is focused on high-level summary statistics.
+Exercise 3 is focused on high-level summary statistics using df3 from questions 3 - 7.
 
-## Question 8
+**Question 8:**
 
 How many different reservoirs are in the dataset, and what are their names? Hint: use the [`distinct`](https://r4ds.hadley.nz/data-transform.html#distinct) function
 
+**Answer 8:**
 ```{r}
 
 ```
 
-## Question 9
+**Question 9:**
 
-Which reservoir has the highest mean surface (< 1 m depth) chlorophyll-a? Hint: use `group_by()` and `summarize()` [combination](https://r4ds.hadley.nz/data-transform.html#groups)
+Which reservoir has the highest mean surface (\< 1 m depth) chlorophyll-a? Hint: use `group_by()` and `summarize()` [combination](https://r4ds.hadley.nz/data-transform.html#groups)
 
+**Answer 9:**
 ```{r}
 
 ```
 
-## Question 10
+**Question 10:**
 
-Which reservoir has the highest observed surface chlorophyll-a?
+Which reservoir has the highest observed surface chlorophyll-a? (you will use a group_by and summerize)
 
+**Answer 10:**
 ```{r}
 
 ```
 
 # Exercise 4
 
-Exercise 4 dives deeper into the data.   
+Exercise 4 dives deeper into the data.
 
-## Question 11
+**Question 11:**
 
-Plot the surface chlorophyll-a concentration for each year (averaged across reservoirs) and describe how surface chlorophyll-a changes over time.
+Plot the surface chlorophyll-a concentration for each year (averaged across reservoirs). Describe in words how surface chlorophyll-a changes over time.  You should have one plot with one line and points (geom_line and geom_point)
 
-```{r}
-
-```
-
-## Question 12
-
-Plot the annual mean surface chlorophyll-a concentration for each year for each reservoir and describe how the patterns differ from the plot in Question 11.  
+**Answer 11:**
 
 ```{r}
 
 ```
 
-## Question 13
+**Question 12:**
 
-Plot the mean surface chlorophyll-a concentration by month for each reservoir and describe how the month of peak chlorophyll-a is similar or different across the reservoirs.
+Plot the annual mean surface chlorophyll-a concentration for each year for each reservoir. Describe in words how the patterns differ from the plot in Question 11. You should have one plot with multiple lines. (geom_line and geom_point)
+
+**Answer 12:**
+
+```{r}
+
+```
+
+**Question 13:**
+
+Plot the mean surface chlorophyll-a concentration by month for each reservoir. Describe in words how the month of peak chlorophyll-a is similar or different across the reservoirs. You should have one plot with multiple lines. (geom_line and geom_point)
+
+**Answer 13:**
 
 ```{r}
 
@@ -158,14 +173,15 @@ Plot the mean surface chlorophyll-a concentration by month for each reservoir an
 
 # Exercise 5
 
-Two of the reservoirs (FCR and BVR) are close to each other.  We are interested in how the mean annual surface chlorophyll-a differs between the two and how that difference changes over time. Is the water quality at one reservoir changing more over time than the other? 
+Two of the reservoirs (FCR and BVR) are close to each other. We are interested in how the mean annual surface chlorophyll-a differs between the two and how that difference changes over time. Is the water quality at one reservoir changing more over time than the other?
 
-## Question 14:
+**Question 14:**
 
-Plot the difference in the annual mean chlorophyll-a between `BVR` and `FCR`.  This is the trickiest of the questions because you will need to use [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data) to make a column for `BVR` and `FCR` so that you can subtract one column from the other.
+Plot the difference in the annual mean chlorophyll-a between `BVR` and `FCR`. This is the trickiest of the questions because you will need to use [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data) to make a column for `BVR` and `FCR` so that you can subtract one column from the other. 
 
-Hints: You will need to use `group_by`, `summarize`, [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data), and `mutate` to transform the cleaned dataset from Exercise 3 into a table that can be used to generate this plot.
+Hints: You will need to use `group_by`, `summarize`, [`pivot_wider`](https://r4ds.hadley.nz/data-tidy.html#widening-data), and `mutate` to transform the cleaned dataset from Exercise 3 into a table that can be used to generate this plot. You should have one plot with one line and points.
 
+**Answer 14:**
 
 ```{r}
 
@@ -173,19 +189,23 @@ Hints: You will need to use `group_by`, `summarize`, [`pivot_wider`](https://r4d
 
 # Exercise 6
 
-This exercise is focused on exporting the data and a plot. 
+This exercise is focused on exporting the data and a plot.
 
-## Question 15
+**Question 15:**
 
 Save the plot from Question 14 to a PNG named `question-14.png` in your repo top-level directory. Hint: use [ggsave()](https://r4ds.hadley.nz/data-visualize.html#sec-ggsave)
+
+**Answer 15:**
 
 ```{r}
 
 ```
 
-## Question 16
+**Question 16:**
 
-Write the data frame you created for answering Question 14 (not the entire dataset) to your repo top-level directory with the filename `question-14-data.csv`.  Hint use [`write_csv()`](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file)
+Write the data frame you created for answering Question 14 (not the entire dataset) to your repo top-level directory with the filename `question-14-data.csv`. Hint use [`write_csv()`](https://r4ds.hadley.nz/data-import.html#sec-writing-to-a-file)
+
+**Answer 16:**
 
 ```{r}
 
@@ -193,10 +213,8 @@ Write the data frame you created for answering Question 14 (not the entire datas
 
 # Render and committing
 
-Remember to Render your document to an HTML file and comment+push to GitHub your QMD file, rendered HTML, PNG (from question 15), and CSV (from question 16).  Upload your rendered HTML to Canvas.
+Remember to Render your document to an HTML file and comment+push to GitHub your QMD file, rendered HTML, PNG (from question 15), and CSV (from question 16). Upload your rendered HTML to Canvas.
 
 # Attribution
 
-Include citation of any AI-generated assistance or discussion with classmates (per policy in syllabus). Proper documentation of AI-generated assistance includes the prompt, the source (e.g., ChatGPT), and the significant parts of the response.  Proper documentation of discussion with classmates include listing their names and the components discussed.  
-
-
+Include citation of any AI-generated assistance or discussion with classmates (per policy in syllabus). Proper documentation of AI-generated assistance includes the prompt, the source (e.g., ChatGPT), and the significant parts of the response. Proper documentation of discussion with classmates include listing their names and the components discussed.

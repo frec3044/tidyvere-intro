@@ -1,5 +1,4 @@
-
-# tidyverse-intro-module
+# Introduction to Tidyverse Module
 
 ## Overview
 
@@ -7,15 +6,13 @@ This module uses a multi-year dataset of water quality variables that have been 
 
 - author: Quinn Thomas (@rqthomas)
 - contact: <rqthomas@vt.edu>
-- url: 
 - date: 2023-01-03
 - license: MIT, CC-BY
 - copyright: Quinn Thomas
-- package: 
 
 ## Feedback
 
-- <https://github.com/frec3044/introduction-template/issues>
+- <https://github.com/frec3044/tidyverse-intro/issues>
 
 ## Questions
 
@@ -35,7 +32,8 @@ This module uses a multi-year dataset of water quality variables that have been 
   - `tidyverse`
   - `R`
   - RStudio
-  - Git & GitHub.
+  - Git & GitHub
+  - Quarto
 
 ## Instructions
 
@@ -54,4 +52,6 @@ This module has been developed as the second module in a junior-level Environmen
 ## Background Reading, Video & Exercises
 
 The background reading is embedded in the assignment quarto document as links to the relevant sections of [R for Data Science book (2nd edition)](https://r4ds.hadley.nz) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.
+
+In-class introduction is from the Data Analysis and Visualization in R for Ecologists module from Data Carpentry <https://datacarpentry.github.io/R-ecology-lesson/>
 

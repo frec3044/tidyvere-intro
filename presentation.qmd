@@ -94,3 +94,10 @@ The assignment is designed to help you review R tidyverse skills that were intro
 -   Final render of the document to HTML
 -   Commit and push HTML to GitHub
 -   Upload HTML to Canvas
+
+## R house keeping
+
+-  Tools - > Global Options...
+-  General: Uncheck Restore .RData
+-  General: set Save workspace on exit to Never
+-  Code: Check "Use native pipe"
