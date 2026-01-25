@@ -16,7 +16,6 @@ editor: visual
 
 ::: {.column width="30%"}
 ![](img/book-cover.png){fig-alt="image R for Data Science book cover"}
-
 :::
 :::::
 
@@ -34,9 +33,23 @@ editor: visual
 
 How does water quality (temperature and chlorophyll-a) vary across time and among drinking water reservoirs in the Roanoke region?
 
+## Science Question
+
+-   Chlorophyll-a is a pigment in plants, algae, and cyanobacteria that used in photosynthesis. It is a metric of how much algae is present in the lake or reservoir.
+
+-   Too much cause aesthetic problems such as green scums and bad odors, and can result in decreased levels of dissolved oxygen. (U.S. EPA)
+
+-   Some algae and cyanobacteria also produce toxins that can be of public health concern when they are found in high concentrations. (U.S. EPA)
+
+[<https://www.epa.gov/national-aquatic-resource-surveys/indicators-chlorophyll>]{.aside}
+
 ## Data
 
 ![Photo credit: Cayelan Carey](img/ctd.png){fig-alt="CTD sensor for measuring water quality"}
+
+## Data
+
+A CTD (Conductivity, Temperature, and Depth) sensor is lowered in the water column and uses sensors to measure different water quality variables throughout the water column.
 
 ## Data
 
@@ -97,7 +110,7 @@ The assignment is designed to help you review R tidyverse skills that were intro
 
 ## R house keeping
 
--  Tools - > Global Options...
--  General: Uncheck Restore .RData
--  General: set Save workspace on exit to Never
--  Code: Check "Use native pipe"
+-   Tools - \> Global Options...
+-   General: Uncheck Restore .RData
+-   General: set Save workspace on exit to Never
+-   Code: Check "Use native pipe"
